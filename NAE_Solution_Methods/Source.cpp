@@ -3,12 +3,12 @@
 
 using namespace std;
 
-double f(double x) // функция f(x)
+double f(double x) 
 {
 	return pow(x, 3) + 18 * x + 83;
 }
 
-double df(double x) // производная функции f(x)
+double df(double x) 
 {
 	return pow(3 * x, 2) + 18;
 }
@@ -54,7 +54,7 @@ tryAgain: cin >> methodNum;
 	switch (methodNum) {
 	case 1:
 		cout << "You've selected chord method" << endl;
-		cout << "Enter x0 and x1:" << endl; // области значения
+		cout << "Enter x0 and x1:" << endl; 
 
 		cout << "x0 = ";
 		cin >> x0;
@@ -62,7 +62,7 @@ tryAgain: cin >> methodNum;
 		cout << endl << "x1 = ";
 		cin >> x1;
 
-		cout << endl << "Enter accuracy e = "; // точность
+		cout << endl << "Enter accuracy e = "; 
 		cin >> e;
 
 		x = method_chord(x0, x1, e);
@@ -83,7 +83,7 @@ tryAgain: cin >> methodNum;
 	}
 }
 
-int main() //главная функция
+int main() 
 {
 	double x;
 
