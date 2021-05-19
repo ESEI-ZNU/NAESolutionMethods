@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="NAESolutionMethods.cpp" />
+    <ClCompile Include="Calculation.cpp" />
+    <ClCompile Include="NaeSolituonMethoods.cpp" />
+    <ClCompile Include="NaeMethoods.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Calculation.h" />
+    <ClInclude Include="NaeMethoods.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
