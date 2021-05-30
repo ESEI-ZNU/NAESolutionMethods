@@ -1,11 +1,17 @@
-#include <iostream>
+#include <iostream> 
 #include<cmath>
 #include<cstdlib>
-#include <ctime>
+#include <ctime> 
 #include"NaeMethoods.h"
 #include"Calculation.h"
 using namespace std;
 
+/// <summary>
+/// The main function
+/// </summary>
+/// <returns>
+/// The code
+/// </returns>
 int main()
 {
 	setlocale(LC_ALL, "ru");
@@ -18,18 +24,19 @@ int main()
 	int iter = 0;
 	double timeInSeconds;
 
-
-TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного дiлення;\n3)Методом хорд;\n4)Методом дотичних;" << endl;
+TryAgain:cout << "Choose a method:\n1)Методом перебору;\n2)Half division method;\n3)Chord method;\n4)Tangent method;" << endl;
 	cin >> number;
 	
 
 	if (number == 1)
 	{
+
+		clock_t startTime = clock(); 
+
 		cout << "___________" << endl;
-		cout << "Методом перебору:" << endl;
+		cout << "Brute force method:" << endl;
 		cout << "___________" << endl;
 
-		clock_t startTime = clock();
 
 		cout << "n = ";
 
@@ -52,7 +59,7 @@ TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного 
 
 		iter = CalculationBruteForce(iter);
 
-		cout << "Кількість ітерацій: " << iter << endl;
+		cout << "Number of iterations: " << iter << endl;
 
 
 		cout << "e = " << (b - a) / (n + 1) << endl;
@@ -65,14 +72,14 @@ TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного 
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
 
-		cout << "Кількість секунд: " << timeInSeconds << endl;
+		cout << "Number of seconds: " << timeInSeconds << endl;
 	}
 	else if (number == 2)
 	{
 		clock_t startTime = clock();
 
 		cout << "___________" << endl;
-		cout << "Методом половинного дiлення:" << endl;
+		cout << "Half division method:" << endl;
 		cout << "___________" << endl;
 
 		cout << "interval= "; cin >> x;
@@ -80,7 +87,7 @@ TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного 
 		cout << "b ="; cin >> b;
 		cout << "c ="; cin >> c;
 
-		//Поиск решения:
+		
 		x = FindRoot(F2, a, b, x, c);
 		cout << "x = " << (a + b) / 2 << endl;
 		if (b = c)
@@ -91,14 +98,14 @@ TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного 
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
 
-		cout << "Кількість секунд: " << timeInSeconds << endl;
+		cout << "Number of seconds: " << timeInSeconds << endl;
 	}
 	else if (number == 3)
 	{
 		clock_t startTime = clock();
 
 		cout << "___________" << endl;
-		cout << "Методом хорд:" << endl;
+		cout << "Chord method:" << endl;
 		cout << "___________" << endl;
 
 		cout << "Enter x0 and x1:" << endl;
@@ -118,14 +125,14 @@ TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного 
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
 
-		cout << "Кількість секунд: " << timeInSeconds << endl;
+		cout << "Number of seconds: " << timeInSeconds << endl;
 	}
 	else if (number == 4)
 	{
 		clock_t startTime = clock();
 
 		cout << "___________" << endl;
-		cout << "Методом дотичних:" << endl;
+		cout << "Tangent method:" << endl;
 		cout <<"___________" << endl;
 
 		cout << endl << "Enter accuracy e = ";
@@ -137,16 +144,16 @@ TryAgain:cout << "Оберiть рiвняння:\n1)Методом перебору;\n2)Методом половинного 
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
 
-		cout << "Кількість секунд: " << timeInSeconds<< endl;
+		cout << "Number of seconds: " << timeInSeconds<< endl;
 	}
 	
-	cout << "Нажмiть:\n1)Продовжити;\n2)Завершити;" << endl;
+	cout << "Please enter:\n1)Proceed;\n2)Complete;" << endl;
 	cin >> value;
 
 	if (value == 1)
 		goto TryAgain;
 	else
-		cout << "Программа завершена";
+		cout << "Program completed";
 
 	return 0;
 }

@@ -1,2 +1,17 @@
 ﻿  NaeSolituonMethoods.cpp
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1d5 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1d7 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1db that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1de that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1e1 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1e4 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x28d that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x28f that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x293 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x296 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x299 that is illegal in the current source character set (codepage 65001).
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeSolituonMethoods.cpp(1,1): warning C4828: The file contains a character starting at offset 0x29c that is illegal in the current source character set (codepage 65001).
+  NaeMethoods.cpp
+D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\NAESolutionMethods\NaeMethoods.cpp(212,8): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
   NAESolutionMethods.vcxproj -> D:\Саша\ЗДІА\2 семестр\Комунікації\NEOSolutionCode\NAESolutionMethods\Debug\NAESolutionMethods.exe

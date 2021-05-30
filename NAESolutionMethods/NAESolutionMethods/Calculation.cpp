@@ -1,4 +1,10 @@
 #pragma once
+/// <summary>
+///    <para> The functions which contain calculation of iteration </para>
+/// </summary>
+///<return>
+///    <para> number of iteration </para>
+/// </return>
 
 #include <iostream>
 #include "Calculation.h"
@@ -22,7 +28,7 @@ int CalculationBruteForce(int& iter)
 int CalculationHalfDivisionMethod(int& iter2)
 {
 	++iter2;
-	return iter2;;
+	return iter2;
 }
 
 int CalculationMethodChord(int& iter3)
@@ -34,7 +40,7 @@ int CalculationMethodChord(int& iter3)
 int CalculationMethodNewton(int& iter4)
 {
 	++iter4;
-	return iter4;;
+	return iter4;
 }
 
 
