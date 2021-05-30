@@ -24,7 +24,7 @@ int main()
 	int iter = 0;
 	double timeInSeconds;
 
-TryAgain:cout << "Choose a method:\n1)Методом перебору;\n2)Half division method;\n3)Chord method;\n4)Tangent method;" << endl;
+TryAgain:cout << "Choose a method:\n1)Brute force method;\n2)Half division method;\n3)Chord method;\n4)Tangent method;" << endl;
 	cin >> number;
 	
 
