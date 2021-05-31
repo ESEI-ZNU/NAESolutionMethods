@@ -38,41 +38,23 @@ TryAgain:cout << "Choose a method:\n1)Brute force method;\n2)Half division metho
 		cout << "___________" << endl;
 
 
-		cout << "n = ";
+		cout << "e = ";
 
-		cin >> n;
+		cin >> e;
 
-		y = func(a);
+		cout << "a = ";
+		cin >> a;
 
-		for (int i = 1; i <= n; i++)
+		cout << "b = ";
+		cin >> b;
 
-		{
-
-			x = a + i * (b - a) / (n + 1);
-
-			if (func(x) < y)
-
-				y = func(x);
-
-			iter = CalculationBruteForce(iter);
-		}
-
-		iter = CalculationBruteForce(iter);
-
-		cout << "Number of iterations: " << iter << endl;
-
-
-		cout << "e = " << (b - a) / (n + 1) << endl;
-
-		cout << "x = " << x << endl;
-
-		cout << "y = " << y << endl;
+		cout << "x = " << MethodPerebora(e,a,b);
 
 		clock_t endTime = clock();
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
 
-		cout << "Number of seconds: " << timeInSeconds << endl;
+		cout << "\nNumber of seconds: " << timeInSeconds << endl;
 	}
 	else if (number == 2)
 	{
@@ -81,23 +63,47 @@ TryAgain:cout << "Choose a method:\n1)Brute force method;\n2)Half division metho
 		cout << "___________" << endl;
 		cout << "Half division method:" << endl;
 		cout << "___________" << endl;
+		int iter2 = 0;
+		cout << "a = ";
+		cin >> a;
+		cout << "b = ";
+		cin >> b;
 
-		cout << "interval= "; cin >> x;
-		cout << "a ="; cin >> a;
-		cout << "b ="; cin >> b;
-		cout << "c ="; cin >> c;
+		cout << "e = ";
+		cin >> e;
 
+		if (F2(a) * F2(b) < 0)
+		{
+			cout << "The convergence condition is satisfied" << endl;
+
+			while (1)
+			{
+				x = (a + b) / 2;
+				iter2 = CalculationHalfDivisionMethod(iter2);
+				if (fabs(F2(x)) < e)//precision condition
+					break;
+				if (F2(a) * F2(x) <= 0)
+				{
+					b = x;
+				}
+				else
+				{
+					a = x;
+				}
+
+			}
+			cout << "Root x = " << x << endl;
+
+		}
+		else
+		{
+			cout << "Convergence condition is not satisfied" << endl;
+		}
 		
-		x = FindRoot(F2, a, b, x, c);
-		cout << "x = " << (a + b) / 2 << endl;
-		if (b = c)
-			cout << true << endl;
-		else (a = c);
-		cout << false << endl;
 		clock_t endTime = clock();
 		clock_t clockTicksTaken = endTime - startTime;
 		timeInSeconds = clockTicksTaken / (double)CLOCKS_PER_SEC;
-
+		cout << "Number of Iteration = " << iter2 << endl;
 		cout << "Number of seconds: " << timeInSeconds << endl;
 	}
 	else if (number == 3)
@@ -135,6 +141,7 @@ TryAgain:cout << "Choose a method:\n1)Brute force method;\n2)Half division metho
 		cout << "Tangent method:" << endl;
 		cout <<"___________" << endl;
 
+	
 		cout << endl << "Enter accuracy e = ";
 		cin >> e;
 

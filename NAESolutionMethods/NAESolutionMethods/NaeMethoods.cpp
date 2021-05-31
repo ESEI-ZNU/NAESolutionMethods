@@ -114,7 +114,8 @@ double MethodNewton(double x, double eps)
 {
 	int iter4 = 0;
 
-	cout << "x0= " << x;
+	cout << "x0= ";
+	cin >> x;
 
 	do {
 		x = x - F(x) / DF(x);
@@ -146,50 +147,10 @@ double MethodNewton(double x, double eps)
 /// </returns>
 
 double F2(double x) {
-	double a = x * x - 9 * x + 14;
+	double a = pow(x, 3) + 18 * x + 83;
 	return a;
 }
 
-/// Реалізує  Half division method:
-/// <summary>
-/// 
-/// double FindRoot
-/// 
-/// </summary>
-/// <param name="x">
-/// 
-/// (double(*f)(double) - call function f2
-/// double a - coordinate a
-/// double b - coordinate b
-/// double eps - precision
-/// double c - coordinate c
-/// 
-/// </param>
-/// 
-/// <returns>
-/// 
-///  return 0
-/// 
-/// </returns>
-
-double FindRoot(double(*f)(double), double a, double b, double eps, double c) {
-	double x;
-	int iter2 = 0;
-
-	while ((b - a) / 2 > eps) {
-		x = (a + b) / 2;
-
-
-		iter2 = CalculationHalfDivisionMethod(iter2);
-
-	}
-
-	iter2 = CalculationHalfDivisionMethod(iter2);
-
-	cout << "Number of iterations: " << iter2 << endl;
-
-	return 0;
-}
 
 /// A function that helps find the value of an expression in Brute force method:
 /// <summary>
@@ -211,8 +172,47 @@ double FindRoot(double(*f)(double), double a, double b, double eps, double c) {
 
 double func(double x)
 {
-	int a = pow(x, 3) - 3 * sin(x);
+	int a = pow(x, 3) + 18 * x + 83;
 	return a;
 
 }
 
+/// A function that helps find the value of an expression in MethodPerebora:
+/// <summary>
+/// 
+/// double MethodPerebora
+/// 
+/// </summary>
+/// <param name="x">
+/// 
+/// e - precision
+/// 
+/// a - coordinate a
+/// 
+/// b - coordinate b
+/// 
+/// </param>
+/// 
+/// <returns>
+/// 
+/// a - returns the specified equation
+/// 
+/// </returns>
+double MethodPerebora(double e,double a,double b) {
+
+	int iter = 0;
+
+	for (double x = a; x <= 5.0; x += e)
+	{
+		double temp = fabs(F(x));
+		if (b > temp)
+		{
+			iter = CalculationBruteForce(iter);
+			b = temp;
+			a = x;
+		}
+		
+	}
+	cout << "Numbers of iteration: " << iter << endl;
+	return a;
+}
