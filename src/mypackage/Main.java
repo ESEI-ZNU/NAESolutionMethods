@@ -84,6 +84,30 @@ public class menuChoos {
                 System.out.println("Root = " + root1);
 
             }
+            case 3 -> {
+
+                double root1 = 0;
+
+                System.out.print("2. Method of half division (половнинне ділення)");
+
+                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
+
+                System.out.println("Root = " + root1);
+
+            }
+
+            case 4 -> {
+
+                double root1 = 0;
+
+                System.out.print("2. Method of half division (половнинне ділення)");
+
+                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
+
+                System.out.println("Root = " + root1);
+
+            }
+
 
             default -> {
 
