@@ -8,11 +8,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter cout of degree : ");
+        System.out.print("Enter count of degree : ");
         int count = scanner.nextInt();
 
-        System.out.print("Enter step : ");
-        double step = scanner.nextDouble();
+//        System.out.print("Enter step : ");
+//        double step = scanner.nextDouble();
 
         System.out.print("Enter range, from least to most, by k_SPACE : ");
         double min = scanner.nextDouble();
@@ -21,59 +21,68 @@ public class Main {
         System.out.print("Enter an accuracy : ");
         double epsilon = scanner.nextDouble();
 
-        double[] ArrayOfK = new double[count];
+        double[] arrayOfKof = new double[count];
 
         for (int i = 0; i < count; i++) {
 
             System.out.print("Enter k of x with " + i + " degree : ");
-            ArrayOfK[i] = scanner.nextDouble();
+            arrayOfKof[i] = scanner.nextDouble();
 
         }
 
         while (true) {
 
-            System.out.print("Choose path to solution : ");
-            System.out.print("1. Brute force method (переборка)");
-            System.out.print("2. Method of half division (половнинне ділення)");
-            System.out.print("3. Decimal  method (дотичні)");
-            System.out.print("4. Сhord method (хорди)");
-            System.out.print("5. Сhord-decimal method (хорди - дотичні)");
-            System.out.print("6. Іteration method (ітерації)");
-            System.out.print(" ");
-            System.out.print("0. EXIT");
-            int path = scanner.nextInt();
+            menuChoos.conChoos(min, max, epsilon, arrayOfKof, count);
 
-            switch (path) {
+        }
+    }
+}
 
-                case 0 -> {
+public class menuChoos {
 
-                    return;
+    static void conChoos(double min, double max, double epsilon, double[] arrayOfKof, int count) {
 
-                }
-                case 1 -> {
+        Scanner scanner = new Scanner(System.in);
 
-                    double root1 = 0;
+        System.out.print("Choose path to solution : ");
+        System.out.print("1. Brute force method (переборка)");
+        System.out.print("2. Method of half division (половнинне ділення)");
+        System.out.print("3. Decimal  method (дотичні)");
+        System.out.print("4. Сhord method (хорди)");
+        System.out.print("5. Сhord-decimal method (хорди - дотичні)");
+        System.out.print("6. Іteration method (ітерації)");
+        System.out.print(" ");
+        System.out.print("0. EXIT");
+        int path = scanner.nextInt();
 
-                    System.out.print("1. Brute force method (переборка)");
+        switch (path) {
 
-                    root1 = Function.bruteForce(min, max, step, epsilon, ArrayOfK, count);
+            case 0 -> {
 
-                    System.out.println("Root = " + root1);
+                return;
 
-                }
+            }
+            case 1 -> {
 
-                default -> {
+                double root1 = 0;
 
-                    System.out.print("Unknown method");
+                System.out.print("1. Brute force method (переборка)");
 
-                }
+                root1 = Method.bruteForce(min, max, epsilon, arrayOfKof, count);
+
+                System.out.println("Root = " + root1);
+
+            }
+
+            default -> {
+
+                System.out.print("Unknown method");
 
             }
         }
     }
 }
-
-public class Method  {
+public class Method {
 
     static double bruteForce(double a, double b, double epsilon, double[] arrayOfKof, int count) {
         long startTime = System.nanoTime();
@@ -151,71 +160,71 @@ public class Method  {
 
     }
 
-        static double f_chord(double min, double max, double epsilon, double[] k) {
+    static double nchord(double min, double max, double epsilon, double[] arrayOfKof) {
 
-            double root = 0;
+        double root = 0;
 
-            long startTime = System.nanoTime();
+        long startTime = System.nanoTime();
 
-            /// METHOD
+        /// METHOD
 
-            long endTime = System.nanoTime();
+        long endTime = System.nanoTime();
 
-            long diffTime = endTime - startTime;
+        long diffTime = endTime - startTime;
 
-            System.out.println("Error = " + epsilon);
-            System.out.println("Time = " + diffTime + " ns");
+        System.out.println("Error = " + epsilon);
+        System.out.println("Time = " + diffTime + " ns");
 
-            return root;
-        }
+        return root;
+    }
 
-        static double f_newton(double start, double epsilon, double[] k) {
+    static double newton(double start, double epsilon, double[] arrayOfKof) {
 
-            double root = 0;
+        double root = 0;
 
-            long startTime = System.nanoTime();
+        long startTime = System.nanoTime();
 
-            /// METHOD
+        /// METHOD
 
-            long endTime = System.nanoTime();
+        long endTime = System.nanoTime();
 
-            long diffTime = endTime - startTime;
+        long diffTime = endTime - startTime;
 
-            System.out.println("Error = " + epsilon);
-            System.out.println("Time = " + diffTime + " ns");
+        System.out.println("Error = " + epsilon);
+        System.out.println("Time = " + diffTime + " ns");
 
-            return root;
-        }
+        return root;
+    }
 
-        static double f_iteration(double start, double epsilon, double[] k) {
+    static double iteration(double start, double epsilon, double[] arrayOfKof) {
 
-            double root = 0;
+        double root = 0;
 
-            long startTime = System.nanoTime();
+        long startTime = System.nanoTime();
 
-            /// METHOD
+        /// METHOD
 
-            long endTime = System.nanoTime();
+        long endTime = System.nanoTime();
 
-            long diffTime = endTime - startTime;
+        long diffTime = endTime - startTime;
 
-            System.out.println("Error = " + epsilon);
-            System.out.println("Time = " + diffTime + " ns");
+        System.out.println("Error = " + epsilon);
+        System.out.println("Time = " + diffTime + " ns");
 
-            return root;
-        }
+        return root;
+    }
 
 }
 
-public class Function {
+public class funcPoly {
 
-    public static double f(double x, int count, double k[]) {
+    public static double polynom(double x, int count, double arrayOfKof[]) {
 
         double polynom = 0;
 
         for (int i = count; i > 0; i--) {
 
-            polynom = k[i] * Math.pow(x, i) + polynom;
+            polynom = arrayOfKof[i] * Math.pow(x, i) + polynom;
 
         }
 
