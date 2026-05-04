@@ -75,46 +75,52 @@ public class Main {
 
 public class Method  {
 
-    static double bruteForce(double a, double b, double epsilon, double[] arrayOfKof, int count) {
-        long startTime = System.nanoTime();
+        static double bruteForce(double a, double b, double step, double epsilon, double[] k, int count)
+        {
+            long startTime = System.nanoTime();
 
-        double root = 0;
+            double root = 0;
 
-//            epsilon=step;
+            epsilon=step;
 
-        double x = a;
+            double x=a;
 
-        if (a == b) {
-            if (funcPoly.polynom(a, count, arrayOfKof) == 0)
-                return a;
-            else
-                System.out.println("Немає коренів на проміжку");
+            if(a==b)
+            {
+                if (Function.f(a, count, k ) == 0)
+                    return a;
+                else
+                    System.out.println("Немає коренів на проміжку");
+            }
+
+            while(x<b)
+            {
+                double nextX=0;
+                if ( Function.f(x, count, k )*Function.f(nextX, count, k )< 0)
+                {
+                    root = (x+nextX)/2;
+                    break;
+                }
+
+                else
+                    x=nextX;
+            }
+
+            long endTime = System.nanoTime();
+
+            long diffTime = endTime - startTime;
+
+            System.out.println("Error = " + epsilon);
+            System.out.println("Time = " + diffTime + " ns");
+
+            return root;
         }
-
-        while (x < b) {
-            double nextX = 0;
-            if (funcPoly.polynom(x, count, arrayOfKof) * funcPoly.polynom(nextX, count, arrayOfKof) < 0) {
-                root = (x + nextX) / 2;
-                break;
-            } else
-                x = nextX;
-        }
-
-        long endTime = System.nanoTime();
-
-        long diffTime = endTime - startTime;
-
-        System.out.println("Error = " + epsilon);
-        System.out.println("Time = " + diffTime + " ns");
-
-        return root;
-    }
 
     static double bisection(double a, double b, double epsilon, double[] k, int count) {
 
         long startTime = System.nanoTime();
 
-        if (funcPoly.polynom(a, count, k) * funcPoly.polynom(b, count, k) > 0)
+        if (Function.f(a, count, k ) * Function.f(b, count, k ) > 0)
             System.out.println("метод половинного ділення на цьому проміжку не можна застосувати");
 
         double root = 0;
@@ -122,18 +128,18 @@ public class Method  {
 
 
         if (a == b) {
-            if (funcPoly.polynom(a, count, k) == 0)
+            if (Function.f(a, count, k ) == 0)
                 return a;
             else
                 System.out.println("Немає коренів на проміжку");
         }
 
         while ((b - a) > epsilon) {
-            if (funcPoly.polynom(a, count, k) * funcPoly.polynom(medium, count, k) < 0) {
+            if (Function.f(a, count, k ) * Function.f(medium, count, k ) < 0) {
                 b = medium;
                 medium = (a + b) / 2;
                 root = medium;
-            } else if (funcPoly.polynom(b, count, k) * funcPoly.polynom(medium, count, k) < 0) {
+            } else if (Function.f(b, count, k ) * Function.f(medium, count, k ) < 0) {
                 a = medium;
                 medium = (a + b) / 2;
                 root = medium;
