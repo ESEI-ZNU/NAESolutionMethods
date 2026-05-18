@@ -1,6 +1,8 @@
-package mypackage;
+package ua.edu.znu.polynomcalc;
 
 import java.util.Scanner;
+
+
 
 public class Main {
 
@@ -256,6 +258,7 @@ public class funcPoly {
     public static double polynom(double x, int count, double arrayOfKof[]) {
 
         double polynom = 0;
+
 
         for (int i = count; i > 0; i--) {
 
