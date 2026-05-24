@@ -1,4 +1,4 @@
-package ua.edu.znu.polynomcalc;
+package mypackage;
 
 import java.util.Scanner;
 
@@ -10,8 +10,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter count of degree : ");
-        int count = scanner.nextInt();
+        int count = PolynomInput.getPolynomDegree();
+        double[] polynomCoefficients=PolynomInput.getPolynomCoeff(count);
+
+//        System.out.print("Enter count of degree : ");
+//        int count = scanner.nextInt();
 
 //        System.out.print("Enter step : ");
 //        double step = scanner.nextDouble();
@@ -19,109 +22,213 @@ public class Main {
         System.out.print("Enter range, from least to most, by k_SPACE : ");
         double min = scanner.nextDouble();
         double max = scanner.nextDouble();
-
+//
         System.out.print("Enter an accuracy : ");
         double epsilon = scanner.nextDouble();
 
-        double[] arrayOfKof = new double[count];
-
-        for (int i = 0; i < count; i++) {
-
-            System.out.print("Enter k of x with " + i + " degree : ");
-            arrayOfKof[i] = scanner.nextDouble();
-
-        }
+//        double[] arrayOfKof = new double[count];
+//
+//        for (int i = 0; i < count; i++) {
+//
+//            System.out.print("Enter k of x with " + i + " degree : ");
+//            arrayOfKof[i] = scanner.nextDouble();
+//
+//        }
 
         while (true) {
 
-            menuChoos.conChoos(min, max, epsilon, arrayOfKof, count);
+            MethodDataInput.getMethodData(min, max, epsilon, polynomCoefficients, count);
 
         }
     }
 }
 
-public class menuChoos {
+ class menuChoos {
 
-    static void conChoos(double min, double max, double epsilon, double[] arrayOfKof, int count) {
+//    static void conChoos(double min, double max, double epsilon, double[] arrayOfKof, int count) {
+//
+//        Scanner scanner = new Scanner(System.in);
+//
+//        System.out.print("Choose path to solution : ");
+//        System.out.print("1. Brute force method (переборка)");
+//        System.out.print("2. Method of half division (половнинне ділення)");
+//        System.out.print("3. Decimal  method (дотичні)");
+//        System.out.print("4. Сhord method (хорди)");
+//        System.out.print("5. Сhord-decimal method (хорди - дотичні)");
+//        System.out.print("6. Іteration method (ітерації)");
+//        System.out.print(" ");
+//        System.out.print("0. EXIT");
+//        int path = scanner.nextInt();
+//
+//        switch (path) {
+//
+//            case 0 -> {
+//
+//                return;
+//
+//            }
+//            case 1 -> {
+//
+//                double root1 = 0;
+//
+//                System.out.print("1. Brute force method (переборка)");
+//
+//                root1 = Method.bruteForce(min, max, epsilon, arrayOfKof, count);
+//
+//                System.out.println("Root = " + root1);
+//
+//            }
+//            case 2 -> {
+//
+//                double root1 = 0;
+//
+//                System.out.print("2. Method of half division (половнинне ділення)");
+//
+//                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
+//
+//                System.out.println("Root = " + root1);
+//
+//            }
+//            case 3 -> {
+//
+//                double root1 = 0;
+//
+//                System.out.print("2. Method of half division (половнинне ділення)");
+//
+//                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
+//
+//                System.out.println("Root = " + root1);
+//
+//            }
+//
+//            case 4 -> {
+//
+//                double root1 = 0;
+//
+//                System.out.print("2. Method of half division (половнинне ділення)");
+//
+//                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
+//
+//                System.out.println("Root = " + root1);
+//
+//            }
+//
+//
+//            default -> {
+//
+//                System.out.print("Unknown method");
+//
+//            }
+//        }
+//    }
+}
 
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Choose path to solution : ");
-        System.out.print("1. Brute force method (переборка)");
-        System.out.print("2. Method of half division (половнинне ділення)");
-        System.out.print("3. Decimal  method (дотичні)");
-        System.out.print("4. Сhord method (хорди)");
-        System.out.print("5. Сhord-decimal method (хорди - дотичні)");
-        System.out.print("6. Іteration method (ітерації)");
-        System.out.print(" ");
-        System.out.print("0. EXIT");
-        int path = scanner.nextInt();
+     class PolynomInput
+    {
+        static Scanner scanner = new Scanner(System.in);
+        static int getPolynomDegree()
+        {
+            System.out.print("Enter count of degree: ");
+            int count = scanner.nextInt();
+            return count;
+        }
 
-        switch (path) {
-
-            case 0 -> {
-
-                return;
-
+        static double[] getPolynomCoeff(int count)
+        {
+            double[] polynomCoefficients = new double[count];
+            for (int i = 0; i < count; i++) {
+                System.out.print("Enter coefficient for x^" + i + ": ");
+                polynomCoefficients[i] = scanner.nextDouble();
             }
-            case 1 -> {
-
-                double root1 = 0;
-
-                System.out.print("1. Brute force method (переборка)");
-
-                root1 = Method.bruteForce(min, max, epsilon, arrayOfKof, count);
-
-                System.out.println("Root = " + root1);
-
-            }
-            case 2 -> {
-
-                double root1 = 0;
-
-                System.out.print("2. Method of half division (половнинне ділення)");
-
-                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
-
-                System.out.println("Root = " + root1);
-
-            }
-            case 3 -> {
-
-                double root1 = 0;
-
-                System.out.print("2. Method of half division (половнинне ділення)");
-
-                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
-
-                System.out.println("Root = " + root1);
-
-            }
-
-            case 4 -> {
-
-                double root1 = 0;
-
-                System.out.print("2. Method of half division (половнинне ділення)");
-
-                root1 = Method.bisection(min, max, epsilon, arrayOfKof, count);
-
-                System.out.println("Root = " + root1);
-
-            }
-
-
-            default -> {
-
-                System.out.print("Unknown method");
-
-            }
+            return polynomCoefficients;
         }
     }
-}
-public class Method {
 
-    static double bruteForce(double a, double b, double epsilon, double[] arrayOfKof, int count) {
+     class MethodDataInput
+    {
+       static Scanner scanner = new Scanner(System.in);
+        static void getMethodData(double min, double max, double epsilon, double[] polynomCoefficients, int count)
+        {
+            System.out.print("Choose path to solution : ");
+            System.out.print("1. Brute force method (переборка)");
+            System.out.print("2. Method of half division (половнинне ділення)");
+            System.out.print("3. Decimal  method (дотичні)");
+            System.out.print("4. Сhord method (хорди)");
+            System.out.print("5. Сhord-decimal method (хорди - дотичні)");
+            System.out.print("6. Іteration method (ітерації)");
+            System.out.print(" ");
+            System.out.print("0. EXIT");
+            int path = scanner.nextInt();
+
+            switch (path) {
+
+                case 0 -> {
+
+                    return;
+
+                }
+                case 1 -> {
+
+                    double root1 = 0;
+
+                    System.out.print("1. Brute force method (переборка)");
+
+                    root1 = Method.bruteForce(min, max, epsilon, polynomCoefficients, count);
+
+                    System.out.println("Root = " + root1);
+
+                }
+                case 2 -> {
+
+                    double root1 = 0;
+
+                    System.out.print("2. Method of half division (половнинне ділення)");
+
+                    root1 = Method.bisection(min, max, epsilon, polynomCoefficients, count);
+
+                    System.out.println("Root = " + root1);
+
+                }
+                case 3 -> {
+
+                    double root1 = 0;
+
+                    System.out.print("2. Method of half division (половнинне ділення)");
+
+                    root1 = Method.bisection(min, max, epsilon, polynomCoefficients, count);
+
+                    System.out.println("Root = " + root1);
+
+                }
+
+                case 4 -> {
+
+                    double root1 = 0;
+
+                    System.out.print("2. Method of half division (половнинне ділення)");
+
+                    root1 = Method.bisection(min, max, epsilon, polynomCoefficients, count);
+
+                    System.out.println("Root = " + root1);
+
+                }
+
+
+                default -> {
+
+                    System.out.print("Unknown method");
+
+                }
+            }
+        }
+        }
+
+
+
+ class Method {
+
+    static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients, int count) {
         long startTime = System.nanoTime();
 
         double root = 0;
@@ -131,7 +238,7 @@ public class Method {
         double x = a;
 
         if (a == b) {
-            if (funcPoly.polynom(a, count, arrayOfKof) == 0)
+            if (funcPoly.polynom(a, count, polynomCoefficients) == 0)
                 return a;
             else
                 System.out.println("Немає коренів на проміжку");
@@ -139,7 +246,7 @@ public class Method {
 
         while (x < b) {
             double nextX = 0;
-            if (funcPoly.polynom(x, count, arrayOfKof) * funcPoly.polynom(nextX, count, arrayOfKof) < 0) {
+            if (funcPoly.polynom(x, count, polynomCoefficients) * funcPoly.polynom(nextX, count, polynomCoefficients) < 0) {
                 root = (x + nextX) / 2;
                 break;
             } else
@@ -197,7 +304,7 @@ public class Method {
 
     }
 
-    static double nchord(double min, double max, double epsilon, double[] arrayOfKof) {
+    static double nchord(double min, double max, double epsilon, double[] polynomCoefficients) {
 
         double root = 0;
 
@@ -215,7 +322,7 @@ public class Method {
         return root;
     }
 
-    static double newton(double start, double epsilon, double[] arrayOfKof) {
+    static double newton(double start, double epsilon, double[] polynomCoefficients) {
 
         double root = 0;
 
@@ -233,7 +340,7 @@ public class Method {
         return root;
     }
 
-    static double iteration(double start, double epsilon, double[] arrayOfKof) {
+    static double iteration(double start, double epsilon, double[] polynomCoefficients) {
 
         double root = 0;
 
@@ -253,16 +360,16 @@ public class Method {
 
 }
 
-public class funcPoly {
+ class funcPoly {
 
-    public static double polynom(double x, int count, double arrayOfKof[]) {
+    public static double polynom(double x, int count, double polynomCoefficients[]) {
 
         double polynom = 0;
 
 
         for (int i = count; i > 0; i--) {
 
-            polynom = arrayOfKof[i] * Math.pow(x, i) + polynom;
+            polynom = polynomCoefficients[i] * Math.pow(x, i) + polynom;
 
         }
 
@@ -270,3 +377,4 @@ public class funcPoly {
 
     }
 }
+
