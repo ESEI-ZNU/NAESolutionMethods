@@ -6,18 +6,21 @@ import java.util.Scanner;
 
 public class Main {
 
+//    Клас містить головний метод програми та відповідає за запуск застосунку. Забезпечує отримання вхідних даних від користувача та організовує виклик методів обчислення.
+
+
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+//        Головний метод програми.
+
+
+                Scanner scanner = new Scanner(System.in);
 
         int count = PolynomInput.getPolynomDegree();
         double[] polynomCoefficients=PolynomInput.getPolynomCoeff(count);
 
 //        System.out.print("Enter count of degree : ");
 //        int count = scanner.nextInt();
-
-//        System.out.print("Enter step : ");
-//        double step = scanner.nextDouble();
 
         System.out.print("Enter range, from least to most, by k_SPACE : ");
         double min = scanner.nextDouble();
@@ -126,15 +129,19 @@ public class Main {
 
      class PolynomInput
     {
+//        Клас призначений для введення параметрів полінома.
+
+
         static Scanner scanner = new Scanner(System.in);
-        static int getPolynomDegree()
+        static int getPolynomDegree( ) //Зчитує від користувача кількість коефіцієнтів полінома.
+
         {
             System.out.print("Enter count of degree: ");
             int count = scanner.nextInt();
             return count;
         }
 
-        static double[] getPolynomCoeff(int count)
+        static double[] getPolynomCoeff(int count) //Створює масив коефіцієнтів полінома та заповнює його введеними значеннями.
         {
             double[] polynomCoefficients = new double[count];
             for (int i = 0; i < count; i++) {
@@ -145,10 +152,12 @@ public class Main {
         }
     }
 
-     class MethodDataInput
-    {
+     class MethodDataInput //Клас відповідає за відображення меню та виклик відповідного методу знаходження кореня.
+
+     {
        static Scanner scanner = new Scanner(System.in);
-        static void getMethodData(double min, double max, double epsilon, double[] polynomCoefficients, int count)
+        static void getMethodData(double min, double max, double epsilon, double[] polynomCoefficients, int count) // Відображає меню методів розв’язання полінома, зчитує вибір користувача та викликає відповідний метод із класу Method.
+
         {
             System.out.print("Choose path to solution : ");
             System.out.print("1. Brute force method (переборка)");
@@ -226,9 +235,10 @@ public class Main {
 
 
 
- class Method {
+ class Method { //Клас містить реалізації чисельних методів знаходження коренів полінома.
 
-    static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients, int count) {
+    static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients, int count) { //Реалізує метод повного перебору для пошуку кореня на заданому проміжку.
+
         long startTime = System.nanoTime();
 
         double root = 0;
@@ -263,7 +273,8 @@ public class Main {
         return root;
     }
 
-    static double bisection(double a, double b, double epsilon, double[] k, int count) {
+    static double bisection(double a, double b, double epsilon, double[] k, int count) { //Реалізує метод половинного ділення. Послідовно звужує інтервал пошуку кореня до досягнення необхідної точності.
+
 
         long startTime = System.nanoTime();
 
@@ -304,7 +315,8 @@ public class Main {
 
     }
 
-    static double nchord(double min, double max, double epsilon, double[] polynomCoefficients) {
+    static double nchord(double min, double max, double epsilon, double[] polynomCoefficients) { //Заготовка для реалізації методу хорд.
+
 
         double root = 0;
 
@@ -322,7 +334,8 @@ public class Main {
         return root;
     }
 
-    static double newton(double start, double epsilon, double[] polynomCoefficients) {
+    static double newton(double start, double epsilon, double[] polynomCoefficients) { //Заготовка для реалізації методу Ньютона.
+
 
         double root = 0;
 
@@ -340,7 +353,8 @@ public class Main {
         return root;
     }
 
-    static double iteration(double start, double epsilon, double[] polynomCoefficients) {
+    static double iteration(double start, double epsilon, double[] polynomCoefficients) { //Заготовка для реалізації ітераційного методу.
+
 
         double root = 0;
 
@@ -360,9 +374,10 @@ public class Main {
 
 }
 
- class funcPoly {
+ class funcPoly { //Клас містить допоміжну функцію для обчислення значення полінома.
 
-    public static double polynom(double x, int count, double polynomCoefficients[]) {
+    public static double polynom(double x, int count, double polynomCoefficients[]) { //Обчислює значення полінома для заданого значення x та масиву коефіцієнтів.
+
 
         double polynom = 0;
 
