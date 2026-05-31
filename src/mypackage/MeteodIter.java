@@ -37,14 +37,3 @@ static double iteration(double start, double epsilon, double[] polynomCoefficien
 
     return x_next;
 }
-
- // Допоміжна функція для обчислення значення полінома в точці x.
- // Використовується замість FuncPoly.polynom, оскільки в ньому є помилка.
-//  Можна замінити на виправлений FuncPoly.polynom, коли той буде готовий.
-private static double funcPoly(double x, double[] coeff) {
-    double result = 0.0;
-    for (int i = 0; i < coeff.length; i++) {
-        result += coeff[i] * Math.pow(x, i);
-    }
-    return result;
-}
