@@ -19,11 +19,11 @@ public class Main {
 //        System.out.print("Enter count of degree : ");
 //        int count = scanner.nextInt();
 
-        System.out.print("Enter range, from least to most, by k_SPACE : ");
+        System.out.println("Enter range, from least to most, by k_SPACE : ");
         double min = scanner.nextDouble();
         double max = scanner.nextDouble();
 //
-        System.out.print("Enter an accuracy : ");
+        System.out.println("Enter an accuracy : ");
         double epsilon = scanner.nextDouble();
 
 //        double[] arrayOfKof = new double[count];

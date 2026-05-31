@@ -11,7 +11,7 @@ class PolynomInput
     static int getPolynomDegree( ) //Зчитує від користувача кількість коефіцієнтів полінома.
 
     {
-        System.out.print("Enter count of degree: ");
+        System.out.println("Enter count of degree: ");
         int count = scanner.nextInt();
         return count;
     }
@@ -20,7 +20,7 @@ class PolynomInput
     {
         double[] polynomCoefficients = new double[count];
         for (int i = 0; i < count; i++) {
-            System.out.print("Enter coefficient for x^" + i + ": ");
+            System.out.println("Enter coefficient for x^" + i + ": ");
             polynomCoefficients[i] = scanner.nextDouble();
         }
         return polynomCoefficients;
