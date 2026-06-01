@@ -13,15 +13,15 @@ class Method { //Клас містить реалізації чисельних
         double x = a;
 
         if (a == b) {
-            if (FuncPoly.polynom(a, count, polynomCoefficients) == 0)
+            if (FuncPoly.polynom(a, polynomCoefficients) == 0)
                 return a;
             else
                 System.out.println("Немає коренів на проміжку");
         }
 
         while (x < b) {
-            double nextX = 0;
-            if (FuncPoly.polynom(x, count, polynomCoefficients) * FuncPoly.polynom(nextX, count, polynomCoefficients) < 0) {
+            double nextX = x + epsilon;
+            if (FuncPoly.polynom(x, polynomCoefficients) * FuncPoly.polynom(nextX, polynomCoefficients) < 0) {
                 root = (x + nextX) / 2;
                 break;
             } else
@@ -42,7 +42,7 @@ class Method { //Клас містить реалізації чисельних
 
         long startTime = System.nanoTime();
 
-        if (FuncPoly.polynom(a, count, k) * FuncPoly.polynom(b, count, k) > 0)
+        if (FuncPoly.polynom(a, k) * FuncPoly.polynom(b, k) > 0)
             System.out.println("метод половинного ділення на цьому проміжку не можна застосувати");
 
         double root = 0;
@@ -50,18 +50,18 @@ class Method { //Клас містить реалізації чисельних
 
 
         if (a == b) {
-            if (FuncPoly.polynom(a, count, k) == 0)
+            if (FuncPoly.polynom(a, k) == 0)
                 return a;
             else
                 System.out.println("Немає коренів на проміжку");
         }
 
         while ((b - a) > epsilon) {
-            if (FuncPoly.polynom(a, count, k) * FuncPoly.polynom(medium, count, k) < 0) {
+            if (FuncPoly.polynom(a, k) * FuncPoly.polynom(medium,k) < 0) {
                 b = medium;
                 medium = (a + b) / 2;
                 root = medium;
-            } else if (FuncPoly.polynom(b, count, k) * FuncPoly.polynom(medium, count, k) < 0) {
+            } else if (FuncPoly.polynom(b, k) * FuncPoly.polynom(medium, k) < 0) {
                 a = medium;
                 medium = (a + b) / 2;
                 root = medium;
@@ -126,11 +126,11 @@ class Method { //Клас містить реалізації чисельних
     double h = 1e-6; // крок для чисельного диференціювання
     
     // Обчислюємо F(start)
-    double f_start = FuncPoly.polynom(start, polynomCoefficients.length, polynomCoefficients);
+    double f_start = FuncPoly.polynom(start, polynomCoefficients);
     
     // Обчислюємо похідну F'(start) методом центральної різниці
-    double f_start_plus = FuncPoly.polynom(start + h, polynomCoefficients.length, polynomCoefficients);
-    double f_start_minus = FuncPoly.polynom(start - h, polynomCoefficients.length, polynomCoefficients);
+    double f_start_plus = FuncPoly.polynom(start + h, polynomCoefficients);
+    double f_start_minus = FuncPoly.polynom(start - h, polynomCoefficients);
     double f_deriv = (f_start_plus - f_start_minus) / (2 * h);
     
     // Підбираємо lambda для забезпечення умови збіжності |φ'(x)| < 1
@@ -149,7 +149,7 @@ class Method { //Клас містить реалізації чисельних
     // Продовжуємо, поки різниця між наближеннями більша за точність
     while (Math.abs(x_next - x_prev) > epsilon && iterationCount < MAX_ITERATIONS) {
         x_prev = x_next;
-        double f_prev = FuncPoly.polynom(x_prev, polynomCoefficients.length, polynomCoefficients);
+        double f_prev = FuncPoly.polynom(x_prev, polynomCoefficients);
         x_next = x_prev - lambda * f_prev;
         iterationCount++;
     }
