@@ -52,8 +52,10 @@ class Method { //Клас містить реалізації чисельних
         if (a == b) {
             if (FuncPoly.polynom(a, k) == 0)
                 return a;
-            else
+            else {
                 System.out.println("Немає коренів на проміжку");
+                return 9999;
+            }
         }
 
         while ((b - a) > epsilon) {
