@@ -2,7 +2,7 @@ package mypackage;
 
 class Method { //Клас містить реалізації чисельних методів знаходження коренів полінома.
 
-    static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients, int count) { //Реалізує метод повного перебору для пошуку кореня на заданому проміжку.
+    static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients) { //Реалізує метод повного перебору для пошуку кореня на заданому проміжку.
 
         long startTime = System.nanoTime();
 
@@ -37,7 +37,7 @@ class Method { //Клас містить реалізації чисельних
 
         return root;
     }
-    static double bisection(double a, double b, double epsilon, double[] k, int count) { //Реалізує метод половинного ділення. Послідовно звужує інтервал пошуку кореня до досягнення необхідної точності.
+    static double bisection(double a, double b, double epsilon, double[] k) { //Реалізує метод половинного ділення. Послідовно звужує інтервал пошуку кореня до досягнення необхідної точності.
 
 
         long startTime = System.nanoTime();
