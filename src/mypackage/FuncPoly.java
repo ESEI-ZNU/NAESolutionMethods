@@ -1,6 +1,21 @@
 package mypackage;
 
-class FuncPoly { //Клас містить допоміжну функцію для обчислення значення полінома.
+/**
+ * Клас для обчислення значення полінома в заданій точці.
+ *
+ * @author Vladislav
+ * @version 1.0
+ */
+
+class FuncPoly {
+
+    /**
+     * Обчислює значення полінома для заданого значення x.
+     *
+     * @param x значення аргументу
+     * @param polynomCoefficients масив коефіцієнтів полінома
+     * @return значення полінома в точці x
+     */
 
     public static double polynom(double x, double[] polynomCoefficients) {
 

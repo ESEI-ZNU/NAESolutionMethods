@@ -1,22 +1,36 @@
 package mypackage;
 
 import java.util.Scanner;
-
+/**
+ * Клас призначений для введення степеня полінома
+ * та його коефіцієнтів.
+ *
+ * @author Vladislav
+ * @version 1.0
+ */
 class PolynomInput
 {
-//        Клас призначений для введення параметрів полінома.
 
-
+    /**
+     * Зчитує степінь полінома з клавіатури.
+     *
+     * @return степінь полінома
+     */
     static Scanner scanner = new Scanner(System.in);
-    static int getPolynomDegree( ) //Зчитує від користувача кількість коефіцієнтів полінома.
+    static int getPolynomDegree( )
 
     {
         System.out.println("Enter count of degree: ");
         int count = scanner.nextInt();
         return count;
     }
-
-    static double[] getPolynomCoeff(int count) //Створює масив коефіцієнтів полінома та заповнює його введеними значеннями.
+    /**
+     * Зчитує коефіцієнти полінома.
+     *
+     * @param count кількість коефіцієнтів полінома
+     * @return масив коефіцієнтів полінома
+     */
+    static double[] getPolynomCoeff(int count)
     {
         double[] polynomCoefficients = new double[count];
         for (int i = 0; i < count; i++) {

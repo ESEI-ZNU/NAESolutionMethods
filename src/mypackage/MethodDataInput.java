@@ -2,11 +2,28 @@ package mypackage;
 
 import java.util.Scanner;
 
-class MethodDataInput //Клас відповідає за відображення меню та виклик відповідного методу знаходження кореня.
+/**
+ * Клас відповідає за відображення меню та виклик
+ * відповідного методу знаходження кореня.
+ *
+ * @author Vladislav
+ * @version 1.0
+ */
 
+class MethodDataInput
 {
+    /**
+     * Відображає меню методів розв'язання полінома,
+     * зчитує вибір користувача та викликає відповідний метод.
+     *
+     * @param min ліва межа інтервалу пошуку
+     * @param max права межа інтервалу пошуку
+     * @param epsilon допустима похибка
+     * @param polynomCoefficients масив коефіцієнтів полінома
+     * @param count степінь полінома
+     */
     static Scanner scanner = new Scanner(System.in);
-    static void getMethodData(double min, double max, double epsilon, double[] polynomCoefficients, int count) // Відображає меню методів розв’язання полінома, зчитує вибір користувача та викликає відповідний метод із класу Method.
+    static void getMethodData(double min, double max, double epsilon, double[] polynomCoefficients, int count)
 
     {
         System.out.println("Choose path to solution : ");
@@ -68,6 +85,28 @@ class MethodDataInput //Клас відповідає за відображен�
                 System.out.println("2. Method of half division (половнинне ділення)");
 
                 root1 = Method.bisection(min, max, epsilon, polynomCoefficients);
+
+                System.out.println("Root = " + root1);
+
+            }
+            case 5 -> {
+
+                double root1 = 0;
+
+                System.out.println("2. Method of half division (половнинне ділення)");
+
+                root1 = Method.bisection(min, max, epsilon, polynomCoefficients);
+
+                System.out.println("Root = " + root1);
+
+            }
+            case 6 -> {
+
+                double root1 = 0;
+
+                System.out.println("2. Method of Iteration (Ітерацій)");
+
+                root1 = Method.iteration(min, max, polynomCoefficients);
 
                 System.out.println("Root = " + root1);
 

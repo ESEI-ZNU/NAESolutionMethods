@@ -1,23 +1,29 @@
     package mypackage;
 
-    class Method { //Клас містить реалізації чисельних методів знаходження коренів полінома.
+    /**
+     * Клас містить реалізації чисельних методів знаходження коренів полінома.
+     *
+     * @author Vladislav
+     * @version 1.0
+     */
+
+    class Method {
 
         /**
-         @version 1.0
-         @param a ліва межа інтервалу
-         @param b права межа інтервалу
-         @param epsilon допустима похибка
-         @param polynomCoefficients масив коефіцієнтів полінома
-         @return наближене значення кореня
+         * Реалізує метод повного перебору для пошуку кореня на заданому проміжку.
+         *
+         * @param a ліва межа інтервалу
+         * @param b права межа інтервалу
+         * @param epsilon допустима похибка
+         * @param polynomCoefficients масив коефіцієнтів полінома
+         * @return наближене значення кореня
          */
 
-        static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients) { //Реалізує метод повного перебору для пошуку кореня на заданому проміжку.
+        static double bruteForce(double a, double b, double epsilon, double[] polynomCoefficients) {
 
             long startTime = System.nanoTime();
 
             double root = 0;
-
-    //            epsilon=step;
 
             double x = a;
 
@@ -46,6 +52,15 @@
 
             return root;
         }
+        /**
+         * Реалізує метод половинного ділення для знаходження кореня полінома.
+         *
+         * @param a ліва межа інтервалу
+         * @param b права межа інтервалу
+         * @param epsilon допустима похибка
+         * @param k масив коефіцієнтів полінома
+         * @return наближене значення кореня
+         */
         static double bisection(double a, double b, double epsilon, double[] k) { //Реалізує метод половинного ділення. Послідовно звужує інтервал пошуку кореня до досягнення необхідної точності.
 
             long startTime = System.nanoTime();
@@ -88,17 +103,16 @@
             return root;
 
         }
-
+        /**
+         * Заготовка для реалізації методу хорд.
+         *
+         * @param min ліва межа інтервалу
+         * @param max права межа інтервалу
+         * @param epsilon допустима похибка
+         * @param polynomCoefficients масив коефіцієнтів полінома
+         * @return наближене значення кореня
+         */
         static double nchord(double min, double max, double epsilon, double[] polynomCoefficients) { //Заготовка для реалізації методу хорд.
-
-            /**
-             @version 1.0
-             @param min ліва межа інтервалу
-             @param max права межа інтервалу
-             @param epsilon допустима похибка
-             @param polynomCoefficients масив коефіцієнтів полінома
-             @return наближене значення кореня
-             */
 
             double root = 0;
 
@@ -115,7 +129,14 @@
 
             return root;
         }
-
+        /**
+         * Заготовка для реалізації методу Ньютона.
+         *
+         * @param start початкове наближення
+         * @param epsilon допустима похибка
+         * @param polynomCoefficients масив коефіцієнтів полінома
+         * @return наближене значення кореня
+         */
         static double newton(double start, double epsilon, double[] polynomCoefficients) { //Заготовка для реалізації методу Ньютона.
 
 
@@ -134,14 +155,21 @@
 
             return root;
         }
-
+        /**
+         * Реалізує метод простої ітерації для знаходження кореня рівняння.
+         *
+         * @param start початкове наближення
+         * @param epsilon допустима похибка
+         * @param polynomCoefficients масив коефіцієнтів полінома
+         * @return наближене значення кореня
+         */
         static double iteration(double start, double epsilon, double[] polynomCoefficients) { //Реалізує метод простої ітерації для знаходження кореня рівняння F(x)=0.
 
         long startTime = System.nanoTime();
 
         // Визначення параметра lambda для забезпечення збіжності
         // Використовуємо формулу: lambda = 1 / (1 + |F'(start)|)
-        double h = 1e-6; // крок для чисельного диференціювання
+        double h = 1e-6;
 
         // Обчислюємо F(start)
         double f_start = FuncPoly.polynom(start, polynomCoefficients);
